@@ -3,10 +3,27 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.spigotrce.tinymappingexporter</groupId>
-    <artifactId>paradfuscator</artifactId>
+    <artifactId>tinymappingexporter</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
+    <build>
+        <finalName>tinymappingexporter-${git.commit.id.abbrev}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.9.10</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>org.ow2.asm</groupId>
